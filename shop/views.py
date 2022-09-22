@@ -44,7 +44,7 @@ class ItemRetrieveUpdateDestroyView(ItemView, RetrieveUpdateDestroyAPIView):
 class OrderView:
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (OrderPermission,)
     authentication_classes = (TokenAuthentication, SessionAuthentication)
 
 

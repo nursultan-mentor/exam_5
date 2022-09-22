@@ -29,6 +29,7 @@ class ItemPermission(BasePermission):
             return False
 
     def has_object_permission(self, request, view, obj):
+        print(request.user.profile, obj.profile)
         if request.method in SAFE_METHODS:
             return True
         elif request.user.is_authenticated and request.user.profile.is_sender and obj.profile == request.user.profile:
